@@ -12,15 +12,12 @@ public class Soal5 {
 
             int pilihan = scanner.nextInt();
 
-            // Menerima input bilangan pertama
             System.out.print("Masukkan bilangan pertama: ");
             int bilangan1 = scanner.nextInt();
 
-            // Menerima input bilangan kedua
             System.out.print("Masukkan bilangan kedua: ");
             int bilangan2 = scanner.nextInt();
 
-            // Melakukan operasi sesuai pilihan
             switch (pilihan) {
                 case 1:
                     System.out.println("Hasil penjumlahan: " + penjumlahan(bilangan1, bilangan2));

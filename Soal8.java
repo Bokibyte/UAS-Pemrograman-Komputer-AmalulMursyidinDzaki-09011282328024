@@ -40,15 +40,12 @@ public class Soal8 {
     private static Map<String, AkunPengguna> akunPengguna = new HashMap<>();
 
     public static void main(String[] args) {
-        // Membuat contoh akun pengguna
         AkunPengguna pengguna1 = new AkunPengguna("john_doe", "password123");
         AkunPengguna pengguna2 = new AkunPengguna("jane_smith", "pass456");
 
-        // Menambahkan akun ke dalam map
         akunPengguna.put(pengguna1.getUsername(), pengguna1);
         akunPengguna.put(pengguna2.getUsername(), pengguna2);
 
-        // Mengelola akun pengguna
         kelolaAkunPengguna();
     }
 
@@ -58,19 +55,15 @@ public class Soal8 {
         System.out.print("Masukkan username: ");
         String usernameInput = scanner.nextLine();
 
-        // Memeriksa apakah username ada dalam map
         if (akunPengguna.containsKey(usernameInput)) {
             AkunPengguna pengguna = akunPengguna.get(usernameInput);
 
             System.out.print("Masukkan password: ");
             String passwordInput = scanner.nextLine();
 
-            // Memeriksa kecocokan password
             if (pengguna.cekPassword(passwordInput)) {
-                // Menampilkan status akun
                 System.out.println("Status akun: " + (pengguna.isAktif() ? "Aktif" : "Nonaktif"));
 
-                // Mengelola aktivasi atau deaktivasi akun
                 System.out.print("Apakah Anda ingin mengaktifkan atau menonaktifkan akun? (aktif/nonaktif): ");
                 String aksi = scanner.nextLine();
 
@@ -87,8 +80,6 @@ public class Soal8 {
         } else {
             System.out.println("Akun tidak ditemukan.");
         }
-
-        // Menutup scanner
         scanner.close();
     }
 }

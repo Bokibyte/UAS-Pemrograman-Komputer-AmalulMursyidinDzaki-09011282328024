@@ -9,10 +9,8 @@ public class Soal4 {
             System.out.print("Masukkan bilangan bulat positif: ");
             int n = scanner.nextInt();
 
-            // Inisialisasi variabel untuk menyimpan faktor-faktor
             List<Integer> faktor = new ArrayList<>();
 
-            // Mencari faktor-faktor
             for (int i = 2; i <= n; i++) {
                 while (n % i == 0) {
                     faktor.add(i);
@@ -20,7 +18,6 @@ public class Soal4 {
                 }
             }
 
-            // Menampilkan faktor-faktor
             System.out.println("Faktorisasi " + n + ": ");
             for (int faktor1 : faktor) {
                 System.out.print(faktor1 + " ");
