@@ -99,6 +99,27 @@ class Soal1{
         frame.setVisible(true);
         frame.setResizable(false);
         frame.getContentPane().setBackground(new Color(80, 80, 80));
+        
+        JLabel title = new JLabel("Kantin");
+        title.setOpaque(true);
+        title.setForeground(new Color(150, 150, 150));
+        title.setBackground(new Color(50, 50, 50));
+        title.setFont(new Font("Consolas", Font.PLAIN, 80));
+        title.setBounds(0, 10, 500, 80);
+
+        JLabel title2 = new JLabel("online");
+        title2.setForeground(new Color(200, 200, 200));
+        title2.setFont(new Font("Arial", Font.PLAIN, 40));
+        title2.setBounds(240, 20, 250, 80);
+
+        JLabel title3 = new JLabel("teraasa mahal di akhir bulan");
+        title3.setForeground(new Color(150, 150, 150));
+        title3.setFont(new Font("Consolas", Font.PLAIN, 15));
+        title3.setBounds(0, 38, 500, 80);
+        
+        frame.add(title3);
+        frame.add(title2);
+        frame.add(title);
 
     }
 }
