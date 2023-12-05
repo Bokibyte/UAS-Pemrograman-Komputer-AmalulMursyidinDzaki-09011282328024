@@ -162,6 +162,11 @@ class Soal1{
                 String getIndexList = input.getText();
                 try{
                     int indexList = Integer.parseInt(getIndexList);
+                    if(indexList >0 && indexList <= indexProduk.length){
+                        
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Menu tidak tersedia!", "Peringarab", JOptionPane.ERROR_MESSAGE);
+                    }
                 }catch(NumberFormatException x){
                     input.setText("");
                     JOptionPane.showMessageDialog(null, "Input salah!", "Peringarab", JOptionPane.ERROR_MESSAGE);
