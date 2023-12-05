@@ -11,10 +11,8 @@ public class Soal2 {
         String inPassword = sc.nextLine();
         if(inUser.equals(username)){
             if(inPassword.equals(password)){
-                
             System.out.print("Autentikasi Berhasil!");
             }else{
-                
             System.out.print("Autentikasi Gagal!");
             }
         }else{
