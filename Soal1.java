@@ -163,7 +163,12 @@ class Soal1{
                 try{
                     int indexList = Integer.parseInt(getIndexList);
                     if(indexList >0 && indexList <= indexProduk.length){
-                        
+                        String getInputQuantity = JOptionPane.showInputDialog(null, indexProduk[indexList]+" dengan harga : Rp"+hargaProduk[indexList]+". Berapa jumlah produk yang ingin anda beli?", "Jumlah Pembelian", JOptionPane.OK_OPTION);
+                        try{
+                            int inputQuantity = Integer.parseInt(getInputQuantity);
+                        }catch(NumberFormatException y){
+                            JOptionPane.showMessageDialog(null, "Input salah!", "Peringarab", JOptionPane.ERROR_MESSAGE);
+                        }
                     }else{
                         JOptionPane.showMessageDialog(null, "Menu tidak tersedia!", "Peringarab", JOptionPane.ERROR_MESSAGE);
                     }
