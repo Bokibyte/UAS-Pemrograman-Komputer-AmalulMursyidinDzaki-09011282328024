@@ -148,8 +148,11 @@ class Soal1{
             }
         });
 
+        JTextField input = new JTextField();
+        input.setBounds(250, 130, 100, 30);
+        input.setFont(new Font("Consolas", Font.PLAIN, 20));
 
-        
+        frame.add(input);
         frame.add(listMenu);
         frame.add(menuTitle);
         frame.add(title3);
