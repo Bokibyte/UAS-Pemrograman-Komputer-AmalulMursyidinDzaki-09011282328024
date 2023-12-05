@@ -1,4 +1,6 @@
+import java.awt.*;
 import java.util.ArrayList;
+import javax.swing.*;
 
 class Soal1{
     public static void main(String[]args){
@@ -89,5 +91,14 @@ class Soal1{
         ArrayList<Integer> jumlahProduk = new ArrayList<>();
         ArrayList<Integer> indexPembelian = new ArrayList<>();
         ArrayList<String> tampilkanProduk = new ArrayList<>();
+
+        JFrame frame = new JFrame("Kantin Online v.911");
+        frame.setSize(500, 700);
+        frame.setLayout(null);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        frame.setResizable(false);
+        frame.getContentPane().setBackground(new Color(80, 80, 80));
+
     }
 }
