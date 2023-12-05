@@ -5,5 +5,6 @@ public static void main(String[] args) {
     String punten = "";
     String tescomit = "sedih";
     int ufsifhesefnw = "86249826498329";
+    int p = 0;
     }
 }
