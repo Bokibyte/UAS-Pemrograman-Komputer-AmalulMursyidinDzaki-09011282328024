@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Fibonacci {
+public class Soal3 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -14,7 +14,7 @@ public class Fibonacci {
 
         scanner.close();
     }
-    
+
     private static int fibonacci(int n) {
         if (n <= 1) {
             return n;
