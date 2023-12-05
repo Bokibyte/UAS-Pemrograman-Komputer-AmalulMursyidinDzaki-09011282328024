@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
+import javax.swing.plaf.ScrollBarUI;
+import javax.swing.plaf.basic.BasicScrollBarUI;
 
 class Soal1{
     public static void main(String[]args){
@@ -90,7 +92,7 @@ class Soal1{
                             2500};
         ArrayList<Integer> jumlahProduk = new ArrayList<>();
         ArrayList<Integer> indexPembelian = new ArrayList<>();
-        ArrayList<String> tampilkanProduk = new ArrayList<>();
+        StringBuilder tampilkanBelanja = new StringBuilder();
 
         JFrame frame = new JFrame("Kantin Online v.911");
         frame.setSize(500, 700);
@@ -116,7 +118,40 @@ class Soal1{
         title3.setForeground(new Color(150, 150, 150));
         title3.setFont(new Font("Consolas", Font.PLAIN, 15));
         title3.setBounds(0, 38, 500, 80);
+
+        JLabel menuTitle = new JLabel("Menu Makanan:");
+        menuTitle.setForeground(new Color(200, 200, 200));
+        title2.setFont(new Font("Arial", Font.PLAIN, 30));
+        menuTitle.setBounds(10, 100, 490, 20);
+
+        StringBuilder list = new StringBuilder();
+        for(int i = 0; i < indexProduk.length; i++){
+            list.append(" "+(i+1)+".   "+indexProduk[i]+"\n");
+        }
+
+        JTextArea daftarMenu = new JTextArea();
+        daftarMenu.setLineWrap(true);
+        daftarMenu.setEditable(false);
+        daftarMenu.setText(list.toString());
+
+        JScrollPane listMenu = new JScrollPane(daftarMenu);
+        listMenu.setFont(new Font("Arial", Font.PLAIN, 30));
+        listMenu.setBounds(10, 130, 210, 500);
+        listMenu.setBorder(null);
+        listMenu.getViewport().getView().setBackground(new Color(50, 50, 50));
+        listMenu.getViewport().getView().setForeground(new Color(200, 200, 200));
+        listMenu.getVerticalScrollBar().setBackground(new Color(50, 50, 50));
+        listMenu.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
+            @Override
+            protected void configureScrollBarColors(){
+                this.thumbColor = new Color(80, 80, 80);
+            }
+        });
+
+
         
+        frame.add(listMenu);
+        frame.add(menuTitle);
         frame.add(title3);
         frame.add(title2);
         frame.add(title);
