@@ -154,6 +154,10 @@ class Soal1{
         input.setBounds(250, 130, 150, 30);
         input.setFont(new Font("Consolas", Font.PLAIN, 20));
 
+        JTextArea daftarBelanja = new JTextArea();
+        daftarBelanja.setLineWrap(true);
+        daftarBelanja.setEditable(false);
+
         JButton tombolOK = new JButton("Pilih");
         tombolOK.setBounds(410, 130, 60, 30);
         tombolOK.addActionListener(new ActionListener(){
@@ -163,9 +167,14 @@ class Soal1{
                 try{
                     int indexList = Integer.parseInt(getIndexList);
                     if(indexList >0 && indexList <= indexProduk.length){
+                        indexList -=1;
+                        indexPembelian.add(indexList);
                         String getInputQuantity = JOptionPane.showInputDialog(null, indexProduk[indexList]+" dengan harga : Rp"+hargaProduk[indexList]+". Berapa jumlah produk yang ingin anda beli?", "Jumlah Pembelian", JOptionPane.OK_OPTION);
                         try{
                             int inputQuantity = Integer.parseInt(getInputQuantity);
+                            jumlahProduk.add(inputQuantity);
+                            tampilkanBelanja.append(" "+indexProduk[indexList]+"    Rp"+hargaProduk[indexList]+" x"+inputQuantity+"\n");
+                            daftarBelanja.setText(tampilkanBelanja.toString());
                         }catch(NumberFormatException y){
                             JOptionPane.showMessageDialog(null, "Input salah!", "Peringarab", JOptionPane.ERROR_MESSAGE);
                         }
@@ -180,6 +189,35 @@ class Soal1{
             }
         });
 
+
+
+ 
+        
+
+        JScrollPane listBelanja = new JScrollPane(daftarBelanja);
+        listBelanja.setFont(new Font("Arial", Font.PLAIN, 30));
+        listBelanja.setBounds(250, 200, 210, 390);
+        listBelanja.setBorder(null);
+        listBelanja.getViewport().getView().setBackground(new Color(50, 50, 50));
+        listBelanja.getViewport().getView().setForeground(new Color(200, 200, 200));
+        listBelanja.getVerticalScrollBar().setBackground(new Color(50, 50, 50));
+        listBelanja.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
+            @Override
+            protected void configureScrollBarColors(){
+                this.thumbColor = new Color(80, 80, 80);
+            }
+        });
+
+        JButton tombolBayar = new JButton("Bayar");
+        tombolBayar.setBounds(280, 600, 150, 30);
+        tombolBayar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+            }
+        });
+
+        frame.add(tombolBayar);
+        frame.add(listBelanja);
         frame.add(tombolOK);
         frame.add(input);
         frame.add(listMenu);
