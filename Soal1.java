@@ -95,6 +95,7 @@ class Soal1{
         ArrayList<Integer> jumlahProduk = new ArrayList<>();
         ArrayList<Integer> indexPembelian = new ArrayList<>();
         StringBuilder tampilkanBelanja = new StringBuilder();
+        ArrayList<Integer> totalHarga = new ArrayList<>();
 
         JFrame frame = new JFrame("Kantin Online v.911");
         frame.setSize(500, 700);
@@ -175,6 +176,7 @@ class Soal1{
                             jumlahProduk.add(inputQuantity);
                             tampilkanBelanja.append(" "+indexProduk[indexList]+"    Rp"+hargaProduk[indexList]+" x"+inputQuantity+"\n");
                             daftarBelanja.setText(tampilkanBelanja.toString());
+                            totalHarga.add(hargaProduk[indexList]*inputQuantity);
                         }catch(NumberFormatException y){
                             JOptionPane.showMessageDialog(null, "Input salah!", "Peringarab", JOptionPane.ERROR_MESSAGE);
                         }
@@ -188,11 +190,6 @@ class Soal1{
                     
             }
         });
-
-
-
- 
-        
 
         JScrollPane listBelanja = new JScrollPane(daftarBelanja);
         listBelanja.setFont(new Font("Arial", Font.PLAIN, 30));
@@ -213,6 +210,30 @@ class Soal1{
         tombolBayar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
+                int totHarga = 0;
+                int totalBarang = 0;
+                for(int calc : indexPembelian){
+                    totalBarang += calc;
+                }
+                for(int calc : totalHarga){
+                    totHarga += calc;
+                }
+                if(totalBarang >= 0 && totalBarang < 5){
+                    JOptionPane.showMessageDialog(null, "Total harga = "+totHarga);
+                    System.exit(0);
+                }else if(totalBarang >= 5 && totalBarang <= 10){
+                    totHarga *= 5 / 100;
+                    JOptionPane.showMessageDialog(null, "Total harga setelah diskon = "+totHarga);
+                    System.exit(0);
+                }else if(totalBarang > 10 && totalBarang <= 20){
+                    totHarga *= 10 / 100;
+                    JOptionPane.showMessageDialog(null, "Total harga setelah diskon = "+totHarga);
+                    System.exit(0);
+                }else{
+                    totHarga *= 20 / 100;
+                    JOptionPane.showMessageDialog(null, "Total harga setelah diskon = "+totHarga);
+                    System.exit(0);
+                }
             }
         });
 
