@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.plaf.ScrollBarUI;
@@ -149,9 +151,26 @@ class Soal1{
         });
 
         JTextField input = new JTextField();
-        input.setBounds(250, 130, 100, 30);
+        input.setBounds(250, 130, 150, 30);
         input.setFont(new Font("Consolas", Font.PLAIN, 20));
 
+        JButton tombolOK = new JButton("Pilih");
+        tombolOK.setBounds(410, 130, 60, 30);
+        tombolOK.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                String getIndexList = input.getText();
+                try{
+                    int indexList = Integer.parseInt(getIndexList);
+                }catch(NumberFormatException x){
+                    input.setText("");
+                    JOptionPane.showMessageDialog(null, "Input salah!", "Peringarab", JOptionPane.ERROR_MESSAGE);
+                }
+                    
+            }
+        });
+
+        frame.add(tombolOK);
         frame.add(input);
         frame.add(listMenu);
         frame.add(menuTitle);
@@ -160,4 +179,5 @@ class Soal1{
         frame.add(title);
 
     }
+    
 }
